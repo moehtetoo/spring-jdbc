@@ -1,52 +1,29 @@
--- MySQL Administrator dump 1.4
---
--- ------------------------------------------------------
--- Server version	5.0.45-community-nt
+-- Database: ride
 
+-- DROP DATABASE ride;
 
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
+CREATE DATABASE ride
+  WITH OWNER = postgres
+       ENCODING = 'UTF8'
+       TABLESPACE = pg_default
+       LC_COLLATE = 'English_United States.1252'
+       LC_CTYPE = 'English_United States.1252'
+       CONNECTION LIMIT = -1;
+       
+-- Table: public.ride
 
-/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
-/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
-/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+-- DROP TABLE public.ride;
 
-
---
--- Create schema ride
---
-
-CREATE DATABASE IF NOT EXISTS ride;
-USE ride;
-
---
--- Definition of table `ride`
---
-
-DROP TABLE IF EXISTS `ride`;
-CREATE TABLE `ride` (
-  `id` int(10) unsigned NOT NULL auto_increment,
-  `name` varchar(100) NOT NULL,
-  `duration` int(10) unsigned NOT NULL,
-  PRIMARY KEY  (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `ride`
---
-
-/*!40000 ALTER TABLE `ride` DISABLE KEYS */;
-/*!40000 ALTER TABLE `ride` ENABLE KEYS */;
-
-
-
-
-/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
-/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
-/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+CREATE TABLE public.ride
+(
+  id integer NOT NULL DEFAULT nextval('ride_id_seq'::regclass),
+  name character varying(100) NOT NULL,
+  duration character varying(100),
+  CONSTRAINT ride_pkey PRIMARY KEY (id)
+)
+WITH (
+  OIDS=FALSE
+);
+ALTER TABLE public.ride
+  OWNER TO postgres;
+       
