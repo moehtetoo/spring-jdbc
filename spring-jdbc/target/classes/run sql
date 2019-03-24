@@ -26,4 +26,13 @@ WITH (
 );
 ALTER TABLE public.ride
   OWNER TO postgres;
+  
+  -- Table: pulic.employee
+  
+  CREATE TABLE employee(
+	 id serial PRIMARY KEY,
+	 name VARCHAR (50),
+	 age int NOT NULL,
+	 address VARCHAR (355)
+	);
        
