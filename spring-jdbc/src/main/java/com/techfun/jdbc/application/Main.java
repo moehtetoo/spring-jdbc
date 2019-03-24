@@ -13,9 +13,9 @@ public class Main {
 		ApplicationContext ctx= new ClassPathXmlApplicationContext("applicationContext.xml");
 		RideService rideService = (RideService) ctx.getBean("rideService");
 		Ride ride = new Ride();
-		testCreateRide(ride, rideService);
+//		testCreateRide(ride, rideService);
 		testUpdateRide(ride,rideService);
-//		testDeleteRide(ride, rideService);		
+		testDeleteRide(ride, rideService);		
 	}
 	
 	private static void testCreateRide(Ride ride,RideService rideService) {
@@ -26,7 +26,7 @@ public class Main {
 	}
 	
 	private static void testUpdateRide(Ride ride,RideService rideService) {
-		ride.setName("Pyae Phyo");
+		ride.setName("Moe Htet Oo");
 		ride.setDuration(11);
 		ride.setId(1);
 		rideService.updateRide(ride);
@@ -34,7 +34,7 @@ public class Main {
 	}
 	
 	private static void testDeleteRide(Ride ride, RideService rideService) {
-		ride.setId(1);
+		ride.setId(5);
 		rideService.deleteRide(ride);
 		System.out.println("Process Successful completed!");
 	}
