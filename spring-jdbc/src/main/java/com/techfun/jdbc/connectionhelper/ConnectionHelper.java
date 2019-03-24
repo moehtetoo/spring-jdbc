@@ -5,10 +5,10 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class ConnectionHelper {
-	private static String DB_DRIVER = "com.mysql.jdbc.Driver";
-	private static String DB_CONNECTION = "jdbc:mysql://localhost:3306/ride";
-	private static String DB_USER = "root";
-	private static String DB_PASSWORD = "root";
+	private static String DB_DRIVER = "org.postgresql.Driver";
+	private static String DB_CONNECTION = "jdbc:postgresql://localhost:5432/ride";
+	private static String DB_USER = "postgres";
+	private static String DB_PASSWORD = "postgres";
 
 	public static Connection getDBConnection() {
 
