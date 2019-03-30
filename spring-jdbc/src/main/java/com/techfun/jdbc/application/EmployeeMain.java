@@ -1,5 +1,7 @@
 package com.techfun.jdbc.application;
 
+import java.util.List;
+
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -14,6 +16,7 @@ public class EmployeeMain {
 		testCreateEmployee(employeeService);
 //		testUpdateEmployee(employeeService);
 //		testDeleteEmployee(employeeemployeeService);
+		testGetAllEmployees(employeeService);
 	}
 	
 	private static void testCreateEmployee(EmployeeService employeeService) {
@@ -39,5 +42,11 @@ public class EmployeeMain {
 		employee.setId(2);
 		employeeService.deleteEmployee(employee);
 		System.out.println("Process Successful completed!");
+	}
+	
+	private static void testGetAllEmployees(EmployeeService employeeService) {
+		List<Employee> employeeList = employeeService.getAllEmployee();
+		employeeList.forEach(employee -> System.out.println("Id : "+employee.getId()+" Name : "+employee.getName()
+											+" Age : "+employee.getAge()+" Address : "+employee.getAddress()));
 	}
 }
